@@ -11,5 +11,6 @@ COPY src/web.conf /srv/app/conf/web.conf
 FROM python:3.11-slim
 
 COPY --from=base /opt/venv /opt/venv
+COPY --from=base /srv /srv
 ENV PATH="/opt/venv/bin:$PATH"
-CMD [ "/srv/app" ]
+CMD python /srv/app/web.py

@@ -19,8 +19,7 @@ def get_db_config(db_option):
 
 
 def get_db_time():
-        conn = connect("host= {0} dbname={1} user={2} password={3}".format(get_db_config('db_host'), get_db_config('db_name'), get_db_config('db_user'), get_
-db_config('db_password')))
+        conn = connect("host={0} port={1} dbname={2} user={3} password={4}".format(get_db_config('db_host'), get_db_config('db_port'), get_db_config('db_name'), get_db_config('db_user'), get_db_config('db_password')))
         conn.autocommit = True
         cur = conn.cursor()
         cur.execute('SELECT current_user;;')
